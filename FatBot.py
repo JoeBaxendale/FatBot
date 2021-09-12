@@ -2,7 +2,7 @@ import discord
 import time
 from discord.voice_client import VoiceClient
 from datetime import datetime
-token = 'Nzc2MTI4NTc0MzE4MDUxMzc4.X6wYDw.kNTKk7EDYTSDxseqvO1H6emCCUk'
+token = 'insert token here'
 
 client = discord.Client()
 pfp_path = r"C:\Users\Joe\Documents\bot_assets\gibby.jpg"
