@@ -26,6 +26,8 @@ async def on_ready():
 
 @client.event
 async def on_voice_state_update(member,before,after):   #registers whenever anyone leaves or joins a voice call
+    global currentUser
+    global connected
     oldUser = currentUser
     if connected == False:                          #check that the bot is not currently in use
         currentUser = user_check()                  #user_check checks if one of the users in the call is a targetted user
@@ -37,6 +39,7 @@ async def on_voice_state_update(member,before,after):   #registers whenever anyo
         connected = False                   
         if currentUser is not None:                 #if a user left the channel, check if the user who left is the user that the bot is currently emulating
             if member.id == int(currentUser):
+                currentUser = 'temp'
                 await connection.disconnect()       #if the user leaving is the user the bot is actively emulating, the bot disconnects as well
 
 
