@@ -62,7 +62,7 @@ async def changePPAndName(userID):
             for channel in guild.voice_channels:
                 if channel.id == channelID:
                     if currentUser == first client:
-                        pfp_path = r"the required path for the picture"             #input the path of the picture for the required profile picture update
+                        pfp_path = r"picture path"             #input the path of the picture for the required profile picture update
                         fp = open(pfp_path, 'rb')
                         pfp = fp.read()
                         connected = True
@@ -71,7 +71,7 @@ async def changePPAndName(userID):
                         connection = await channel.connect()
                     elif currentUser == second client:
                         print("yeee")
-                        pfp_path = r"C:\Users\Joe\Documents\bot_assets\sean.png"    
+                        pfp_path = r"picture path"    
                         fp = open(pfp_path, 'rb')
                         pfp = fp.read()
                         connected = True
