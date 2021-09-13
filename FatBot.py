@@ -27,9 +27,7 @@ async def on_ready():
 @client.event
 async def on_voice_state_update(member,before,after):   #registers whenever anyone leaves or joins a voice call
     oldUser = currentUser
-    global connected
     if connected == False:                          #check that the bot is not currently in use
-        global currentUser
         currentUser = user_check()                  #user_check checks if one of the users in the call is a targetted user
         if currentUser != oldUser:                  #check if the user currently being used is being requested again, if so, don't update the profile picture and name. This prevents discord throttling
             await changePPAndName(currentUser)
@@ -48,11 +46,9 @@ def user_check():
     for guild in client.guilds:
         for channel in guild.voice_channels:
             if channel.id in channelIDList:
-                global channelID
                 channelID = channel.id
                 for user in list(channel.voice_states.keys()):
                     if user in userIDList:
-                        global currentUser
                         currentUser = user
                         return user                 #only need the first match as only need 1 person at a time
 
